@@ -1,0 +1,51 @@
+{
+  "name": "ui-base",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/ui-base/src",
+  "prefix": "baz",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "packages/ui-base/ng-package.json",
+        "tailwindConfig": "packages/ui-base/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/ui-base/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/ui-base/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/ui-base/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/ui-base/**/*.ts",
+          "packages/ui-base/**/*.html"
+        ]
+      }
+    }
+  }
+}

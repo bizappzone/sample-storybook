@@ -1,0 +1,37 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@baz/ui-base-temp": ["packages/ui-base/src/index.ts"],
+      "@baz/ui-forms-temp": ["packages/ui-forms/src/index.ts"],
+      "ng-showcase/src/app/base": [
+        "apps/ng-showcase/src/app/base/src/index.ts"
+      ],
+      "ng-showcase/src/app/forms": [
+        "apps/ng-showcase/src/app/forms/src/index.ts"
+      ],
+      "ng-showcase/src/app/home": [
+        "apps/ng-showcase/src/app/home/src/index.ts"
+      ],
+      "showcase/base-page": ["apps/showcase/src/app/base-page/src/index.ts"],
+      "showcase/form-page": ["apps/showcase/src/app/form-page/src/index.ts"],
+      "showcase/src/app/home-page": [
+        "apps/showcase/src/app/home-page/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
