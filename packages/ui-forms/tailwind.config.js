@@ -7,6 +7,11 @@ module.exports = {
     join(__dirname, 'src/**/!(*.stories|*.spec).{ts,html}'),
     ...createGlobPatternsForDependencies(__dirname),
   ],
+  presets: [
+    require('../../tailwind/tailwind-gc-theme-base'),
+    require('../../tailwind/tailwind-gc-theme-forms'),
+  ],
+  darkMode: 'class',
   theme: {
     extend: {},
   },

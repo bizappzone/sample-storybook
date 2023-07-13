@@ -46,6 +46,53 @@
           "packages/ui-base/**/*.html"
         ]
       }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "packages/ui-base/.storybook",
+        "browserTarget": "ui-base:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/ui-base",
+        "configDir": "packages/ui-base/.storybook",
+        "browserTarget": "ui-base:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c packages/ui-base/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "ui-base:build-storybook",
+        "staticFilePath": "dist/storybook/ui-base"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "ui-base:build-storybook:ci"
+        }
+      }
     }
   }
 }
