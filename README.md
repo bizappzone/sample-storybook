@@ -16,6 +16,6 @@ nx run ui-base:build:production - works fine
 
 nx run ui-forms:build:production - gives error - is not under 'rootDir'
 
-## The UiBase package should be prebuilt and trated like any published lib
+## The UiBase package should be prebuilt and treated like any published lib
 
 Importing a published lib into a new published lib (dependancy) should not produce error.
